@@ -11,3 +11,41 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.active{
+  color:black;
+}
+.inputCheck{
+  margin-right: 20px;
+}
+.header{
+  font-weight: bold;
+}
+.separate{
+  margin-top: 2rem;
+}
+.menuItem{
+  margin-top: 2rem;
+  font-weight: bolder;
+}
+.wrapper{
+  width: 80%;
+    height: 80%;
+    position: absolute;    
+    margin:auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+.homePageImg{
+  max-width: 100%;
+  max-height: 100%;  
+  position: absolute;
+  margin:auto;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}

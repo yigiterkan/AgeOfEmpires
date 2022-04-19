@@ -1,28 +1,36 @@
 import React from "react";
 
-const CostList = () => {
-    return (
-        <div className='container separate'>
-            <p className="header">Costs</p>
-            <div>
+export default class CostList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+        };
+    }
+
+    render() {
+        return (
+            <div className='container separate'>
+                <p className="header">Costs</p>
                 <div>
-                    <input className="inputCheck" type="checkbox" />
-                    <label>Wood</label>
+                    <div>
+                        <input className="inputCheck" type="checkbox" />
+                        <label>Wood</label>
+                    </div>
+                    <div>
+                        <input className="inputCheck" type="checkbox" />
+                        <label>Food</label>
+                    </div>
+                    <div>
+                        <input className="inputCheck" type="checkbox" />
+                        <label>Gold</label>
+                    </div>
                 </div>
-                <div>
-                    <input className="inputCheck" type="checkbox" />
-                    <label>Food</label>
-                </div>
-                <div>
-                    <input className="inputCheck" type="checkbox" />
-                    <label>Gold</label>
-                </div>
+                <br />
+
             </div>
-            <br />
 
-        </div>
+        )
+    }
 
-    )
 }
-
-export default CostList

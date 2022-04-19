@@ -20,7 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "checkJs": false,
-    "noImplicitAny": true
+    "noImplicitAny": false,
+    "types": ["react/next", "react-dom/next"]
   },
   "include": [
     "src"

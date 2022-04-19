@@ -1,9 +1,23 @@
-import React, {useEffect} from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 
-export const UnitList = () => {
- 
-  
-    
-  };
+export default class UnitList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+  render() {
+    return (
+      <button
+        className="square"
+        onClick={() => this.setState({ value: 'X' })}
+      >
+        
+      </button>
+    )
+  }
+
+};
+
