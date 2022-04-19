@@ -6,9 +6,9 @@ const Menu = () => {
     <div >
         <header>
             <nav className='navbar nav menuItem'>
-                  <NavLink to="/" activeclassname="active" >Home Page</NavLink>
-                  <NavLink to="/menu" activeclassname="active">Units Page</NavLink>
-                  <NavLink to="/moduleDetails" activeclassname="active">Unit Detail Page</NavLink>
+                  <NavLink to="/" className="active" >Home Page</NavLink>
+                  <NavLink to="/unit" className="active">Units Page</NavLink>
+                  <NavLink to="/unitDetails" className="active">Unit Detail Page</NavLink>
             </nav>
           
         </header>
