@@ -1,19 +1,19 @@
 import React from 'react'
 import { BrowserRouter,Routes, Route } from 'react-router-dom'
 import Menu from '../components/menu'
-import HomePage from '../compontents/HomePage'
-import ModuleDetails from '../compontents/ModuleDetails'
-import Modules from '../compontents/Modules'
+import HomePage from '../components/homePage'
+import ModuleDetails from '../components/unitDetail'
+import Modules from '../components/unit'
 
 export const AppRouter = () => {
   return (
    <BrowserRouter>
    <div>
-       <Header></Header>
+       <Menu></Menu>
        <Routes>
            <Route path='/' element={<HomePage/>}/>
-           <Route path='/modules' element={<Modules/>}/>
-           <Route path='/moduleDetails' element={<ModuleDetails/>}/>
+           <Route path='/unit' element={<Modules/>}/>
+           <Route path='/unitDetails' element={<ModuleDetails/>}/>
        </Routes>
    </div>
    </BrowserRouter>
