@@ -10,6 +10,7 @@ export default class DataTable extends React.Component {
     };
   }
   render() {
+    
     return (
       <div className='container'>
         <table className="table">

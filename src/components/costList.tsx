@@ -3,11 +3,11 @@ import { Slider, Row, Col, InputNumber } from 'antd';
 import { useEffect } from 'react';
 
 interface CostListProps {
-    onCostChange: React.MouseEventHandler<HTMLButtonElement>
+    onCostChange: any
 
 }
 
-const CostList = (props) => {
+const CostList = (props: CostListProps) => {
 
 
     const [woodValue, setWoodValue] = useState();
@@ -15,18 +15,20 @@ const CostList = (props) => {
     const [goldValue, setGoldValue] = useState();
 
     const onWoodChange = (w) => {
-        setWoodValue(w.target.value);
-    };let onFoodChange = () => {
-        setFoodValue(foodValue);
+        setWoodValue(w);
     };
-    const onGoldChange = () => {
-        setGoldValue(goldValue);
+    const onFoodChange = (f) => {
+        setFoodValue(f);
+    };
+    const onGoldChange = (g) => {
+        setGoldValue(g);
     };
 
     useEffect(() => {
+        props.onCostChange(woodValue, foodValue, goldValue)
 
-      });
-    
+    }, [woodValue, foodValue, goldValue]);
+
     return (
         <div className='container separate'>
             <p className="header">Costs</p>

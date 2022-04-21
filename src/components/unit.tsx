@@ -14,7 +14,8 @@ function Unit()  {
     document.title = `You clicked  times`;
   },[]);
   
-  function mahmut(costs){
+  function mahmut(f,g,w){
+    //burada filtreleyecek service i çağır 
 
   }
   
