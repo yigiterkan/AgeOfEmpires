@@ -4,7 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { AppRouter } from './router/appRouter';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
+import 'antd/dist/antd.css';
 
 
 const root = ReactDOM.createRoot(

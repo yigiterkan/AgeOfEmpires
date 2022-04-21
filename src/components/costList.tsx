@@ -1,36 +1,130 @@
-import React from "react";
+import React, { useState } from "react";
+import { Slider, Row, Col, InputNumber } from 'antd';
+import { useEffect } from 'react';
 
-export default class CostList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: null,
-        };
-    }
-
-    render() {
-        return (
-            <div className='container separate'>
-                <p className="header">Costs</p>
-                <div>
-                    <div>
-                        <input className="inputCheck" type="checkbox" />
-                        <label>Wood</label>
-                    </div>
-                    <div>
-                        <input className="inputCheck" type="checkbox" />
-                        <label>Food</label>
-                    </div>
-                    <div>
-                        <input className="inputCheck" type="checkbox" />
-                        <label>Gold</label>
-                    </div>
-                </div>
-                <br />
-
-            </div>
-
-        )
-    }
+interface CostListProps {
+    onCostChange: React.MouseEventHandler<HTMLButtonElement>
 
 }
+
+const CostList = (props) => {
+
+
+    const [woodValue, setWoodValue] = useState();
+    const [foodValue, setFoodValue] = useState();
+    const [goldValue, setGoldValue] = useState();
+
+    const onWoodChange = (w) => {
+        setWoodValue(w.target.value);
+    };let onFoodChange = () => {
+        setFoodValue(foodValue);
+    };
+    const onGoldChange = () => {
+        setGoldValue(goldValue);
+    };
+
+    useEffect(() => {
+
+      });
+    
+    return (
+        <div className='container separate'>
+            <p className="header">Costs</p>
+            <div>
+                <div>
+                    <Row>
+                        <Col span={3}>
+                            <input className="inputCheck" type="checkbox" />
+                            <label>Wood</label>
+                        </Col>
+                        <Col span={9}>
+                            <Row>
+                                <Col span={12}>
+                                    <Slider
+                                        min={0}
+                                        max={200}
+                                        onChange={onWoodChange}
+                                        value={typeof woodValue === 'number' ? woodValue : 0}
+                                    />
+                                </Col>
+                                <Col span={4}>
+                                    <InputNumber
+                                        min={1}
+                                        max={200}
+                                        style={{ margin: '0 16px' }}
+                                        value={woodValue}
+                                        onChange={onWoodChange}
+                                    />
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
+                <div>
+                    <Row>
+                        <Col span={3}>
+                            <input className="inputCheck" type="checkbox" />
+                            <label>Food</label>
+                        </Col>
+                        <Col span={9}>
+                            <Row>
+                                <Col span={12}>
+                                    <Slider
+                                        min={0}
+                                        max={200}
+                                        onChange={onFoodChange}
+                                        value={typeof foodValue === 'number' ? foodValue : 0}
+                                    />
+                                </Col>
+                                <Col span={4}>
+                                    <InputNumber
+                                        min={1}
+                                        max={200}
+                                        style={{ margin: '0 16px' }}
+                                        value={foodValue}
+                                        onChange={onFoodChange}
+                                    />
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
+                <div>
+                    <Row>
+                        <Col span={3}>
+                            <input className="inputCheck" type="checkbox" />
+                            <label>Gold</label>
+                        </Col>
+                        <Col span={9}>
+                            <Row>
+                                <Col span={12}>
+                                    <Slider
+                                        min={0}
+                                        max={200}
+                                        onChange={onGoldChange}
+                                        value={typeof goldValue === 'number' ? goldValue : 0}
+                                    />
+                                </Col>
+                                <Col span={4}>
+                                    <InputNumber
+                                        min={1}
+                                        max={200}
+                                        style={{ margin: '0 16px' }}
+                                        value={goldValue}
+                                        onChange={onGoldChange}
+                                    />
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
+            </div>
+            <br />
+
+        </div>
+
+    )
+
+
+}
+export default CostList;

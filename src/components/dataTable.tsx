@@ -1,7 +1,8 @@
 import React from 'react'
 
 
-export default class Table extends React.Component {
+
+export default class DataTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
