@@ -8,7 +8,9 @@ interface CostListProps {
 }
 
 const CostList = (props: CostListProps) => {
-
+    const [checkedWood, setWoodChecked] = useState(false);
+    const [checkedFood, setFoodChecked] = useState(false);
+    const [checkedGold, setGoldChecked] = useState(false);
 
     const [woodValue, setWoodValue] = useState();
     const [foodValue, setFoodValue] = useState();
@@ -36,7 +38,14 @@ const CostList = (props: CostListProps) => {
                 <div>
                     <Row>
                         <Col span={3}>
-                            <input className="inputCheck" type="checkbox" />
+                            <input className="inputCheck" type="checkbox"
+                                checked={checkedWood}
+                                onChange={() => {
+                                    if (checkedWood) {
+                                    }
+                                    setWoodChecked(!checkedWood)
+                                }
+                                } />
                             <label>Wood</label>
                         </Col>
                         <Col span={9}>
@@ -47,6 +56,8 @@ const CostList = (props: CostListProps) => {
                                         max={200}
                                         onChange={onWoodChange}
                                         value={typeof woodValue === 'number' ? woodValue : 0}
+                                        disabled={!checkedWood}
+                                        step={5}
                                     />
                                 </Col>
                                 <Col span={4}>
@@ -56,6 +67,7 @@ const CostList = (props: CostListProps) => {
                                         style={{ margin: '0 16px' }}
                                         value={woodValue}
                                         onChange={onWoodChange}
+                                        disabled={!checkedWood}
                                     />
                                 </Col>
                             </Row>
@@ -65,7 +77,14 @@ const CostList = (props: CostListProps) => {
                 <div>
                     <Row>
                         <Col span={3}>
-                            <input className="inputCheck" type="checkbox" />
+                            <input className="inputCheck" type="checkbox" 
+                            checked={checkedFood}
+                            onChange={() => {
+                                if (checkedFood) {
+                                }
+                                setFoodChecked(!checkedFood)
+                            }
+                            }/>
                             <label>Food</label>
                         </Col>
                         <Col span={9}>
@@ -76,6 +95,8 @@ const CostList = (props: CostListProps) => {
                                         max={200}
                                         onChange={onFoodChange}
                                         value={typeof foodValue === 'number' ? foodValue : 0}
+                                        disabled={!checkedFood}
+                                        step={5}
                                     />
                                 </Col>
                                 <Col span={4}>
@@ -85,6 +106,7 @@ const CostList = (props: CostListProps) => {
                                         style={{ margin: '0 16px' }}
                                         value={foodValue}
                                         onChange={onFoodChange}
+                                        disabled={!checkedFood}
                                     />
                                 </Col>
                             </Row>
@@ -94,7 +116,14 @@ const CostList = (props: CostListProps) => {
                 <div>
                     <Row>
                         <Col span={3}>
-                            <input className="inputCheck" type="checkbox" />
+                            <input className="inputCheck" type="checkbox" 
+                            checked={checkedGold}
+                            onChange={() => {
+                                if (checkedGold) {
+                                }
+                                setGoldChecked(!checkedGold)
+                            }
+                            }/>
                             <label>Gold</label>
                         </Col>
                         <Col span={9}>
@@ -105,6 +134,8 @@ const CostList = (props: CostListProps) => {
                                         max={200}
                                         onChange={onGoldChange}
                                         value={typeof goldValue === 'number' ? goldValue : 0}
+                                        disabled={!checkedGold}
+                                        step={5}
                                     />
                                 </Col>
                                 <Col span={4}>
@@ -114,6 +145,7 @@ const CostList = (props: CostListProps) => {
                                         style={{ margin: '0 16px' }}
                                         value={goldValue}
                                         onChange={onGoldChange}
+                                        disabled={!checkedGold}
                                     />
                                 </Col>
                             </Row>

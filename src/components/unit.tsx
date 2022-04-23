@@ -12,18 +12,23 @@ function Unit()  {
   useEffect(() => {
     // tarayıcının başlık bölümünü değiştirmemizi sağlar
     document.title = `You clicked  times`;
-  },[]);
+  },[filteredList,filteredAge]);
   
-  function mahmut(f,g,w){
+  function filteredList(_f: any,_g: any,_w: any){
     //burada filtreleyecek service i çağır 
+    
+
+  }
+
+  function filteredAge(_age: any){
 
   }
   
     return (
       <div className='container'>
-          <Ages/>
+          <Ages onAgeChange={filteredAge}/>
           <br/>
-          <CostList onCostChange={mahmut}/>
+          <CostList onCostChange={filteredList}/>
           <br/>
           <DataTable/>
       </div>
