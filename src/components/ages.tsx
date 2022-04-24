@@ -9,7 +9,7 @@ const Ages = (props:AgesProps) => {
   const [ageValue, setAgeValue] = useState();
 
   const handleClick = (e) => {
-  debugger
+ 
     console.log(e);
     setAgeValue(e);
     props.onAgeChange(e)

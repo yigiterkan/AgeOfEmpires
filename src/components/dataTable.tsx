@@ -1,17 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Table, Radio, Divider } from 'antd';
 import Unit from './unit';
+import { Link } from 'react-router-dom';
 
 
 const columns = [
   {
     title: 'Id',
-    dataIndex: 'Id',
-    render: (text: string) => <a>{text}</a>,
+    dataIndex: 'id',
+    render: (data) => <Link to={"/unitDetails/"+ data}>{data}</Link>,
   },
   {
     title: 'Name',
-    dataIndex: 'Name',
+    dataIndex: 'name',
   },
   {
     title: 'Age',
@@ -19,12 +20,19 @@ const columns = [
   },
   {
     title: 'Costs',
-    dataIndex: 'Costs',
-  },
+    dataIndex: 'cost',
+    render: cost => (
+      <div>
+        <p>Wood: {cost?.Wood}</p>
+        <p>Food: {cost?.Food}</p>
+        <p>Gold: {cost?.Gold}</p>
+        </div>
+      
+    )
+  }
 ];
 interface DataType {
-  key: React.Key;
-  id: number;
+  id: React.Key;
   name: string;
   age: string;
   address: string;
@@ -34,18 +42,15 @@ interface DataTable {
 
 }
 
-const DataTable =(props:DataTable)=> {
- 
-    return (
-      <div>
-
-      <Table
-       
+const DataTable = (props: DataTable) => {
+  return (
+    <div>
+      <Table rowKey='id'
         columns={columns}
         dataSource={props.data}
       />
     </div>
-    )
+  )
 
 }
 
