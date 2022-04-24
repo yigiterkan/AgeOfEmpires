@@ -4,36 +4,43 @@ import DataTable from './dataTable'
 import CostList from './costList'
 import Ages from './ages';
 import { unitService } from '../service/unitService';
+import {MilitaryUnit} from '../data/UnitType'
 
 
 
-function Unit()  {
- 
+function Unit() {
+  const [age, setAge] = useState("All");
+  const [cost, setCost] = useState({});
+  const [data, setData] = useState<Array<MilitaryUnit>>([]);
+
   useEffect(() => {
-    // tarayıcının başlık bölümünü değiştirmemizi sağlar
-    document.title = `You clicked  times`;
-  },[filteredList,filteredAge]);
-  
-  function filteredList(_f: any,_g: any,_w: any){
-    //burada filtreleyecek service i çağır 
-    
+    var params = unitService.getUnitByFilter(age, cost);
+
+    setData(params);
+
+  }, [age, cost]);
+
+  function filteredList(unifiedCost) {
+    setCost(unifiedCost);
 
   }
 
-  function filteredAge(_age: any){
+  function filteredAge(selectedAge) {
+    setAge(selectedAge);
 
   }
-  
-    return (
-      <div className='container'>
-          <Ages onAgeChange={filteredAge}/>
-          <br/>
-          <CostList onCostChange={filteredList}/>
-          <br/>
-          <DataTable/>
-      </div>
-    )
-  
+
+  return (
+
+    <div className='container'>
+      <Ages onAgeChange={filteredAge} />
+      <br />
+      <CostList onCostChange={filteredList} />
+      <br />
+      <DataTable data={data} />
+    </div>
+  )
+
 }
 
 export default Unit;

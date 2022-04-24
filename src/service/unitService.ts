@@ -1,35 +1,41 @@
-import { idText } from 'typescript';
+
 import data from '../data/data.json'
+import { MilitaryUnit } from '../data/UnitType'
 
-export class unitService {
+export const unitService = {
 
-    getAllUnits() {
 
-        return data.units;
-
-    }
-    getUnitById(id) {
+    getUnitById: (id) => {
 
         return data.units.find(a => a.id === id)
 
-    }
-    getUnitByAgeFilter(age, costs) {
-        var costList = data.units;
-        //var foundAge = costList.map(x => x.age);
-        //var foundCost = costList.filter(x => x.cost);
+    },
+    getUnitByFilter: (age, costs) => {
+        var costList: MilitaryUnit[] = data.units;
 
-        // var found = false;
-        // for(var i = 0; i < costList.length; i++) {
-        //     if (costList[i].cost === costs && costList[i].age === age) {
-        //         found = true;
-        //         break;
-        //     }
-        // }
-
-       const results = costList.filter(element => {
-           return element.age === age && element.cost === costs;
-       })
-       return results;
+        if(age !== "All"){
+            costList = costList.filter(element => {
+                return element.age === age 
+            })
+        }
+       
+        if(costs.Gold){
+            costList = costList.filter(element => {
+                return  element.cost?.Gold && element.cost.Gold <= costs.Gold
+            })
+        }
+        if(costs.Food){
+            costList = costList.filter(element=>{
+                return element.cost?.Food && element.cost.Food <= costs.Food
+            })
+        }
+        if(costs.Wood){
+            costList = costList.filter(element=>{
+                return element.cost?.Wood && element.cost.Wood <= costs.Wood
+            })
+        }
+       
+        return costList;
 
     }
 }

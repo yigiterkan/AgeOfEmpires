@@ -27,7 +27,9 @@ const CostList = (props: CostListProps) => {
     };
 
     useEffect(() => {
-        props.onCostChange(woodValue, foodValue, goldValue)
+        const unifiedCost = {Wood : woodValue,Food: foodValue,Gold:goldValue}
+
+        props.onCostChange(unifiedCost)
 
     }, [woodValue, foodValue, goldValue]);
 
