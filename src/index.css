@@ -27,6 +27,7 @@ code {
 .menuItem{
   margin-top: 2rem;
   font-weight: bolder;
+  margin: 0px 100px;
 }
 .wrapper{
   width: 80%;

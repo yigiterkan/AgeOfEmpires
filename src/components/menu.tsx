@@ -13,9 +13,9 @@ export default class Menu extends React.Component {
       <div >
         <header>
           <nav className='navbar nav menuItem'>
-            <NavLink to="/" className="active" >Home Page</NavLink>
-            <NavLink to="/unit" className="active">Units Page</NavLink>
-            <NavLink to="/unitDetails" className="active">Unit Detail Page</NavLink>
+            <NavLink to="/" className="menuItem" >Home Page</NavLink>
+            <NavLink to="/unit" className="menuItem">Units Page</NavLink>
+            <NavLink to="/unitDetails" className="menuItem">Unit Detail Page</NavLink>
           </nav>
 
         </header>
